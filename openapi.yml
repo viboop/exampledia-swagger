@@ -1,0 +1,145 @@
+openapi: 3.0.1
+
+info:
+  version: 0.0.1
+  title: Exampledia
+
+#servers:
+#  - url: http://localhost:80
+#    description: Local server
+#  - url: http://212.227.212.93
+#    description: Stage server
+
+paths:
+#  EmailsLists
+  /api/search:
+    get:
+      summary: Get 5 random examples with the query inside
+      parameters:
+        -   name: q
+            in: query
+            description: Search word
+            required: true
+            schema:
+              type: string
+              example: darling
+      responses:
+        200:
+          description: Array of examples
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: 5819f3ad12
+                    title:
+                      type: string
+                      example: Harry Potter
+                    text:
+                      type: string
+                      example: My only true love, darling.
+                    time:
+                      type: string
+                      example: 00:13:53 - 00:14:16
+                    audio:
+                      type: array
+                      items:
+                        type: string
+                      example: [en, ru]
+                    subtitles:
+                      type: array
+                      items:
+                        type: string
+                      example: [en, ru]
+                    poster:
+                      type: string
+                      example: https://upload.wikimedia.org/wikipedia/ru/b/b4/Harry_Potter_and_the_Philosopher%27s_Stone_%E2%80%94_movie.jpg
+                  required:
+                    - id
+                    - title
+                    - text
+                    - time
+                    - audio
+                    - subtitles
+                    - poster
+  /api/example/id:
+    get:
+      summary: Get example by id
+      parameters:
+        -   name: id
+            in: path
+            description: Example id
+            required: true
+            schema:
+              type: string
+              example: 5819f3ad12
+      responses:
+        200:
+          description: Array of examples
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                      example: Harry Potter
+                    text:
+                      type: string
+                      example: My only true love, darling.
+                    time:
+                      type: string
+                      example: 00:13:53 - 00:14:16
+                    video:
+                      type: string
+                      example: https://exampledia.com/Harry_Potter_movie.mp4
+                    audio:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          lang:
+                            type: string
+                          url:
+                            type: string
+                      example: [{
+                        "language": en,
+                        "url": https://exampledia.com/Harry_Potter_movie.mp4,
+                      },{
+                        "language": ru,
+                        "url": https://exampledia.com/Harry_Potter_movie.mp4,
+                      }]
+                    subtitles:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          lang:
+                            type: string
+                          url:
+                            type: string
+                      example: [{
+                        "language": en,
+                        "url": https://exampledia.com/Harry_Potter_movie.vtt,
+                      },{
+                        "language": ru,
+                        "url": https://exampledia.com/Harry_Potter_movie.vtt,
+                      }]
+                    poster:
+                      type: string
+                      example: https://upload.wikimedia.org/wikipedia/ru/b/b4/Harry_Potter_and_the_Philosopher%27s_Stone_%E2%80%94_movie.jpg
+                  required:
+                    - id
+                    - title
+                    - text
+                    - time
+                    - video
+                    - audio
+                    - subtitles
+                    - poster
