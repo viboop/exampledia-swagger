@@ -66,7 +66,7 @@ paths:
                     - audio
                     - subtitles
                     - poster
-  /api/example/id:
+  /api/example/{id}:
     get:
       summary: Get example by id
       parameters:
@@ -83,8 +83,6 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
                   type: object
                   properties:
                     title:
