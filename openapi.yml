@@ -14,13 +14,13 @@ paths:
     get:
       summary: Get 5 random examples with the query inside
       parameters:
-        -   name: q
+        -   name: query
             in: query
             description: Search word
             required: true
             schema:
               type: string
-              example: darling
+              example: puppies
       responses:
         200:
           description: Array of examples
@@ -74,7 +74,7 @@ paths:
             required: true
             schema:
               type: string
-              example: 5819f3ad12
+              example: 123
       responses:
         200:
           description: Array of examples
