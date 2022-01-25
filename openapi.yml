@@ -5,7 +5,7 @@ info:
   title: Exampledia
 
 servers:
-  - url: 82.165.202.202:80
+  - url: http://82.165.202.202:80
     description: Test server
 
 paths:
