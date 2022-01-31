@@ -5,8 +5,9 @@ info:
   title: Exampledia
 
 servers:
-  - url: http://82.165.202.202:80
+  - url: https://mavira.space
     description: Test server
+
 
 paths:
 #  EmailsLists
